@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://cbjr3iwi5a848"]
 
+[ext_resource type="Script" uid="uid://3vmprvatqqp5" path="res://scripts/GameManager.gd" id="1_iywne"]
 [ext_resource type="Script" uid="uid://bi6dc5j6glmmm" path="res://scripts/HullSystem.gd" id="1_uwrxv"]
+[ext_resource type="Script" uid="uid://b1tocp0wlgjne" path="res://scripts/CrewManager.gd" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://bvpj8km2hawby" path="res://scripts/CrewMember.gd" id="3_lbhrr"]
+[ext_resource type="Script" uid="uid://4duv66uf5ce8" path="res://scripts/ResearchSystem.gd" id="3_lnu2h"]
 
-[node name="Node2D" type="Node2D" unique_id=1917788945]
+[node name="GameManager" type="Node2D" unique_id=1917788945]
+script = ExtResource("1_iywne")
+
+[node name="HullSystem" type="Node" parent="." unique_id=474407324]
 script = ExtResource("1_uwrxv")
+
+[node name="CrewManager" type="Node" parent="." unique_id=2130892663]
+script = ExtResource("2_yqjtg")
+
+[node name="CrewMember1" type="Node" parent="CrewManager" unique_id=970084746]
+script = ExtResource("3_lbhrr")
+
+[node name="CrewMember2" type="Node" parent="CrewManager" unique_id=1321494445]
+script = ExtResource("3_lbhrr")
+
+[node name="ResearchSystem" type="Node" parent="." unique_id=1243244701]
+script = ExtResource("3_lnu2h")

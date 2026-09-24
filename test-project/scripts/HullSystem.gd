@@ -19,6 +19,15 @@ var repair_time: float = 5.0
 var repair_crew_required = 1
 
 
+
+#		.    = current node
+#		..   = parent
+#		/    at the beginning = absolute path from root
+
+@onready var crew_manager = get_node("../CrewManager")
+@onready var research_system = get_node("../ResearchSystem")
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_hull_integrity = max_hull_integrity
@@ -26,7 +35,9 @@ func _ready() -> void:
 	
 	current_flood_level = 0
 	available_crew = current_crew_count	
-
+			
+	research_system._gain_research_xp(100)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_elapsed += delta
@@ -42,7 +53,9 @@ func _process(delta: float) -> void:
 	#take_damage(1)
 	#print("Hull Integrity: ", current_hull_integrity)
 	if Input.is_key_pressed(KEY_E):
-		repair_hull()
+		#repair_hull()
+		research_system._gain_research_xp(100)
+
 	
 		
 	
