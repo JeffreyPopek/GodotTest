@@ -13,6 +13,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Menu"):
 		_show_menu()
+		
+	if Input.is_action_just_pressed("Breach"):
+		hull_system._breach_event()
+		
+	if Input.is_action_just_pressed("Repair"):
+		crew_manager._request_hull_repair()
 
 
 func _show_menu():

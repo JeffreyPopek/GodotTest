@@ -7,12 +7,7 @@ var max_flood_level = 100
 var current_flood_level
 var breached
 
-# timer
 var time_elapsed: float = 0.0
-
-# crew
-var current_crew_count = 1
-var available_crew
 
 # repair
 var repair_time: float = 5.0
@@ -31,12 +26,7 @@ var repair_crew_required = 1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_hull_integrity = max_hull_integrity
-	print(current_hull_integrity)
-	
-	current_flood_level = 0
-	available_crew = current_crew_count	
-			
-	research_system._gain_research_xp(100)
+	current_flood_level = 0			
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -49,18 +39,6 @@ func _process(delta: float) -> void:
 		
 		if breached:
 			flood_event()
-		
-	#take_damage(1)
-	#print("Hull Integrity: ", current_hull_integrity)
-	if Input.is_key_pressed(KEY_E):
-		#repair_hull()
-		research_system._gain_research_xp(100)
-
-	
-		
-	
-		
-	
 
 func take_damage(amount):
 	if breached:
@@ -82,18 +60,14 @@ func flood_event():
 		breached = false
 		print("Sub has sunk. Game Over")
 	
-func repair_hull():
-	if available_crew < 1:
-		print("everyone is busy...")
-		return;
-		#
-	available_crew -= 1
-	
-	print("starting repairs...")
-	
-	await get_tree().create_timer(2.0).timeout
-	
-	available_crew += 1
+func _repair_hull():	
 	current_hull_integrity = max_hull_integrity
+	breached = false
 	
-	print("Hull Repaired. Hull Integrity: ", current_hull_integrity, "/", max_hull_integrity)
+	current_flood_level = 0			# just reset it for now
+	
+	
+func _breach_event():
+	#debug only
+	current_hull_integrity = 0
+	breached = true
