@@ -50,7 +50,7 @@ func take_damage(amount):
 		breached = true
 	
 func flood_event():
-	current_flood_level += 10 #change later to a flood rate 
+	current_flood_level += 5 #change later to a flood rate 
 	
 	print("Water Levels: ", current_flood_level, "/", max_flood_level)
 	

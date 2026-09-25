@@ -12,7 +12,8 @@ enum CREWSTATE {
 var current_state = CREWSTATE.IDLE
 		
 func _ready() -> void:
-	crew_member_name = possible_names[randi_range(0, 2)]
+	pass
+	#crew_member_name = possible_names[randi_range(0, 2)]
 
 func _is_crew_member_free():
 	if current_state == CREWSTATE.IDLE:
@@ -29,3 +30,12 @@ func _set_crew_free():
 func _set_crew_research():
 	current_state = CREWSTATE.RESEARCHING
 	
+	
+func get_status_text():
+	match current_state:
+		CREWSTATE.IDLE:
+			return "IDLE"
+		CREWSTATE.WORKING:
+			return "WORKING"
+		CREWSTATE.RESEARCHING:
+			return "RESEARCHING"

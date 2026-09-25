@@ -54,3 +54,6 @@ func _request_research():
 
 	print("researching")
 	crew_member._set_crew_research()
+	
+	
+	
