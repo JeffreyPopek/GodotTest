@@ -23,12 +23,10 @@ var repair_crew_required = 1
 @onready var research_system = get_node("../ResearchSystem")
 
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_hull_integrity = max_hull_integrity
 	current_flood_level = 0			
 	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	time_elapsed += delta
 	

@@ -3,7 +3,7 @@ extends Node
 var current_depth = 0
 var descent_speed = 5
 
-var time_elapsed
+var time_elapsed: float = 0.0
 
 func _ready() -> void:
 	pass # Replace with function body.

@@ -22,7 +22,7 @@ func _request_crew_member():
 	for crew_member in crew_members:
 		if crew_member._is_crew_member_free():
 			return crew_member
-		return null;
+	return null;
 	
 	
 	
@@ -45,6 +45,12 @@ func _request_hull_repair():  # move to a general task/game manager later
 	print("fixed breach")
 	
 	
-	#checks for available crew crew member
-	#sends them to do tasks
-	#updates their status
+func _request_research():
+	var crew_member = _request_crew_member()
+	
+	if crew_member == null:
+		print("No crew member available")
+		return
+
+	print("researching")
+	crew_member._set_crew_research()

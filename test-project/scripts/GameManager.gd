@@ -4,9 +4,10 @@ extends Node
 @onready var research_system = get_node("ResearchSystem")
 @onready var hull_system = get_node("HullSystem")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass
+	# debug only, expand later
+	crew_manager._request_research()
+	research_system._start_researching()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
